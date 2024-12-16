@@ -21,7 +21,6 @@ for iy, row in enumerate(grid_):
 vec = (0,1)
 
 visited = {}
-visited_paths = defaultdict(lambda: set)
 queue = []
 path = set()
 
@@ -47,7 +46,6 @@ while queue:
                 new_path = copy(path)
                 new_path.add(new_loc)
                 visited[(new_loc,v)] = new_cost
-                visited_paths[(new_loc,v)] = visited_paths[(new_loc,v)].union(new_path)
                 heapq.heappush(queue,(new_cost,(new_loc, v, new_path)))
  
 print("pt1",lowest_cost,"pt2",len(path_elements)+1)           
